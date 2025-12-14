@@ -112,6 +112,48 @@ Now your Html form
 </html>
 
 ```
+for register form
+code for python 
+```
+from aayushserv import AayushLogin
+
+# Instantiate server
+app = AayushLogin()
+
+# --- Registration Route ---
+@app.route("/register")
+def register(form):
+    # Print registration info in terminal
+    print(f"New Registration:")
+    print(f"Username: {form.username}")
+    print(f"Email: {form.email}")
+    print(f"Password: {form.password}")
+
+  
+    app.save("users.txt", f"{form.username} | {form.email} | {form.password}")
+
+    return f"<h2>Registered {form.username} successfully!</h2>"
+
+app.run()
+```
+
+for html
+```<!DOCTYPE html>
+<html>
+<body>
+<h2>Register</h2>
+<form action="http://127.0.0.1:5000/register" method="post">
+    <input type="text" name="username" placeholder="Username" required><br><br>
+    <input type="email" name="email" placeholder="Email" required><br><br>
+    <input type="password" name="password" placeholder="Password" required><br><br>
+    <input type="submit" value="Register">
+</form>
+</body>
+</html>
+```
+
+The use this follow the same process 
+
 And after you type this and run the code what ever you type in Html form you will get all the data from the form to your backend 
 
 
@@ -137,6 +179,7 @@ Aayush | mypassword123
 Browser:
 
 Welcome Aayush!
+
 
 
 
