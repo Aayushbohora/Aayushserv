@@ -5,9 +5,9 @@ Aayushserv is a super simple Python library to create a local server for HTML lo
 🚀 Installation
 
 Install with pip:
-
+```
 pip install aayushserv
-
+```
 
 Works locally on your machine. No additional dependencies required.
 
@@ -16,8 +16,9 @@ Python Server
 from aayushserv import AayushLogin
 
 # Create server object
+```
 app = AayushLogin()
-
+```
 # Define login route
 ```
 @app.route("/login")
@@ -99,4 +100,5 @@ Aayush | mypassword123
 Browser:
 
 Welcome Aayush!
+
 
