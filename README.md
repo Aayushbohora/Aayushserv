@@ -152,7 +152,7 @@ for html
 </html>
 ```
 
-The use this follow the same process 
+To use this follow the same process 
 
 And after you type this and run the code what ever you type in Html form you will get all the data from the form to your backend 
 
@@ -179,6 +179,7 @@ Aayush | mypassword123
 Browser:
 
 Welcome Aayush!
+
 
 
 
