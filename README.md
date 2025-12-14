@@ -68,21 +68,59 @@ Terminal prints login info, saves it in info.txt, and responds to the browser.
 ✨ Features
 
 Easy syntax for beginners
-
 Handles HTML form submissions
-
 Saves data to a file or prints to terminal
-
 Works locally without external dependencies
-
 Perfect for learning backend basics
-
 📌 Notes
+
+How to use it?
+Copy this ❤️
+```
+from aayushserv import AayushLogin
+
+app = AayushLogin()
+
+@app.route("/login")
+def login(form):
+    print(f"{form.username} has logged in")
+    app.save("info.txt", f"{form.username} | {form.password}")
+    return f"<h2>Welcome {form.username}!</h2>"
+
+@app.route("/")
+def home(form=None):
+    return "<h1>AayushServ is working</h1>"
+print(f"{login}")
+
+
+app.run()
+```
+And now run it using python yourfilename.py
+
+Now your Html form
+```
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Login</h2>
+<form action="http://127.0.0.1:5000/login" method="post">
+    <input name="username" placeholder="Username"><br>
+    <input name="password" type="password" placeholder="Password"><br>
+    <input type="submit" value="Login">
+</form>
+</body>
+</html>
+
+```
+And after you type this and run the code what ever you type in Html form you will get all the data from the form to your backend 
+
+
+Made By Aayush Bohora 
+for people to understand about https / protocalls
 
 Only works on your local machine
 
 For production or internet-facing servers, consider Flask, Django, or FastAPI
-
 Ensure HTML form action matches your server URL
 
 📂 Example Output
@@ -96,9 +134,9 @@ info.txt:
 
 Aayush | mypassword123
 
-
 Browser:
 
 Welcome Aayush!
+
 
 
