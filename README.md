@@ -1,185 +1,99 @@
-📦 Aayushserv
+Aayushserv
 
-Aayushserv is a super-simple Python library for beginners to create a local backend server that can receive data from an HTML login form, print it in the terminal, and save it to a file.
-
-It is inspired by Flask but designed to be much easier to understand.
-
-⚠️ This library is for learning & local use only.
-❌ Not secure, ❌ not for production, ❌ no encryption.
+Aayushserv is a super simple Python library to create a local server for HTML login forms and basic POST/GET requests. Perfect for beginners learning backend basics without Flask or Django.
 
 🚀 Installation
+
+Install with pip:
+
 pip install aayushserv
 
-📁 What this library does
 
-✅ Starts a local server
-✅ Listens to HTML form submissions (POST)
-✅ Gives direct access to form fields
-✅ Prints data in terminal
-✅ Saves data to a file
+Works locally on your machine. No additional dependencies required.
 
-🧠 Basic Example (Backend)
-server.py
+💻 Basic Usage
+Python Server
 from aayushserv import AayushLogin
 
+# Create server object
 app = AayushLogin()
 
+# Define login route
 @app.route("/login")
 def login(form):
-    print(f"{form.username} has logged in")
-    app.save("info.txt", f"{form.username} | {form.password}")
+    # Access form fields directly
+    print(f"{form.username} has logged in")            # Terminal output
+    app.save("info.txt", f"{form.username} | {form.password}")  # Save to file
     return f"<h2>Welcome {form.username}!</h2>"
 
+# Run the server
 app.run()
 
 
-Run it:
+✅ Copy & Paste directly into your Python file
 
-python server.py
-
-
-Server runs at:
-
-http://127.0.0.1:5000
-
-🌐 HTML Form Example
-login.html
+HTML Form (login.html)
 <!DOCTYPE html>
 <html>
 <body>
 <h2>Login</h2>
-
 <form action="http://127.0.0.1:5000/login" method="post">
     <input type="text" name="username" placeholder="Username" required><br><br>
     <input type="password" name="password" placeholder="Password" required><br><br>
     <input type="submit" value="Login">
 </form>
-
 </body>
 </html>
 
 
-Open login.html in a browser and submit the form.
+✅ Copy this into an HTML file and open in a browser
 
-🖨️ What happens when user logs in?
-Terminal output:
+⚙️ How It Works
+
+AayushLogin() → Creates the server object
+
+@app.route("/path") → Listens for GET or POST requests
+
+form.username / form.password → Access submitted HTML form data
+
+app.save(filename, data) → Save any string to a file
+
+app.run() → Starts the server (default: http://127.0.0.1:5000)
+
+Terminal prints login info, saves it in info.txt, and responds to the browser.
+
+✨ Features
+
+Easy syntax for beginners
+
+Handles HTML form submissions
+
+Saves data to a file or prints to terminal
+
+Works locally without external dependencies
+
+Perfect for learning backend basics
+
+📌 Notes
+
+Only works on your local machine
+
+For production or internet-facing servers, consider Flask, Django, or FastAPI
+
+Ensure HTML form action matches your server URL
+
+📂 Example Output
+
+Terminal:
+
 Aayush has logged in
 
-File created (info.txt):
-Aayush | 1234
 
-Browser response:
+info.txt:
+
+Aayush | mypassword123
+
+
+Browser:
+
 Welcome Aayush!
-
-📌 Syntax Reference (IMPORTANT)
-1️⃣ Create app
-app = AayushLogin()
-
-
-Creates the server object.
-
-2️⃣ Create a route
-@app.route("/login")
-def login(form):
-    ...
-
-
-"/login" → URL path
-
-form → contains submitted form data
-
-3️⃣ Access form data
-form.username
-form.password
-
-
-⚠️ These come from <input name="username">
-
-If your HTML has:
-
-<input name="email">
-
-
-Then in Python:
-
-form.email
-
-4️⃣ Save data to file
-app.save("info.txt", "some text")
-
-
-What it does:
-
-Creates file if it doesn’t exist
-
-Appends data (does NOT overwrite)
-
-5️⃣ Send response to browser
-return "<h1>Hello</h1>"
-
-
-Anything you return is shown in the browser.
-
-6️⃣ Start server
-app.run()
-
-
-Optional:
-
-app.run(host="127.0.0.1", port=5000)
-
-📋 Available Attributes & Methods
-✅ AayushLogin
-Method	Description
-app.route(path)	Create a URL route
-app.run()	Start server
-app.save(file, data)	Save data to file
-✅ form object
-Attribute	Description
-form.username	Username field
-form.password	Password field
-form.anyname	Any <input name="anyname">
-❌ Things this library does NOT do
-
-❌ No database
-
-❌ No authentication
-
-❌ No encryption
-
-❌ No sessions
-
-❌ No internet hosting
-
-❌ No HTTPS
-
-This is ONLY for learning basics.
-
-🧪 Testing Checklist
-
-Run server.py
-
-Open login.html
-
-Submit form
-
-Check:
-
-Terminal output
-
-info.txt file
-
-Browser response
-
-If all three work → library works.
-
-👨‍🏫 Why Aayushserv exists
-
-Flask is powerful but confusing for beginners.
-Aayushserv removes complexity so students can focus on:
-
-How frontend talks to backend
-
-How data is received
-
-How servers work
