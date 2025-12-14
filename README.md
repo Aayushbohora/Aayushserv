@@ -19,6 +19,7 @@ from aayushserv import AayushLogin
 app = AayushLogin()
 
 # Define login route
+```
 @app.route("/login")
 def login(form):
     # Access form fields directly
@@ -29,9 +30,9 @@ def login(form):
 # Run the server
 app.run()
 
-
+```
 ✅ Copy & Paste directly into your Python file
-
+```
 HTML Form (login.html)
 <!DOCTYPE html>
 <html>
@@ -44,22 +45,23 @@ HTML Form (login.html)
 </form>
 </body>
 </html>
-
+```
 
 ✅ Copy this into an HTML file and open in a browser
 
 ⚙️ How It Works
 
 AayushLogin() → Creates the server object
-
+```
 @app.route("/path") → Listens for GET or POST requests
-
+```
 form.username / form.password → Access submitted HTML form data
-
+```
 app.save(filename, data) → Save any string to a file
-
+```
+```
 app.run() → Starts the server (default: http://127.0.0.1:5000)
-
+```
 Terminal prints login info, saves it in info.txt, and responds to the browser.
 
 ✨ Features
@@ -97,3 +99,4 @@ Aayush | mypassword123
 Browser:
 
 Welcome Aayush!
+
